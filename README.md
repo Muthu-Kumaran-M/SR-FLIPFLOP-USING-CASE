@@ -1,4 +1,6 @@
 # SR-FLIPFLOP-USING-CASE
+## Name: Muthu Kumaran M
+## Reg No: 212224245002
 
 **AIM:**
 
@@ -33,44 +35,31 @@ By using three variable K-Map, we can get the simplified expression for next sta
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=S+R′Q(t)Q(t+1)=S+R′Q(t)
 
 **Procedure**
-1. Define Inputs/Outputs: Inputs: S (Set), R (Reset), c1k (clock); Outputs: Q, Qbar.
-2. Initialization: Set Q = 0 and Qbar = 1 at the start of the simulation.
-3. SR Flip-Flop Logic: On posedge c1k, compute Q = S | (~R & Q).
-4. Complementary Output: Update Qbar = R | (~S & Qbar) to maintain SR Flip-Flop behavior.
-5. Testbench: Test with combinations of S, R, and c1k to ensure proper Set-Reset functionality.
+
+/*1.Type the program in Quartus software.
+
+2.Compile and run the program.
+
+3.Generate the RTL schematic and save the logic diagram.
+
+4.Create nodes for inputs and outputs to generate the timing diagram.
+
+5.For different input combinations generate the timing diagram.*/
 
 **PROGRAM**
 ```
-
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
-Developed by: Muthu Kumaran M
-RegisterNumber: 212224245002
-*/
-```
-```
-module exp6(S,R,c1k,Q,Qbar);
-input S,R,c1k;
-output reg Q;
-output reg Qbar;
-initial Q=0;
-initial Qbar=1;
-always @(posedge c1k)
-begin
-Q=S|((~R)&Q);
-Qbar=R|((~S)&(Qbar));
+module ex06(input S,input R,input clk,output reg Q, output reg Qbar);
+always @(posedge clk)
+begin 
+Q <= S | (~R & Q);
+Qbar<=~Q;
 end
 endmodule
-
 ```
-
 **RTL LOGIC FOR FLIPFLOPS**
-![image](https://github.com/user-attachments/assets/7f2123ea-f1ee-40fa-acba-5daf01313ec8)
-
+<img width="1920" height="1200" alt="Screenshot 2025-10-07 134728" src="https://github.com/user-attachments/assets/e3cd17ae-4cf4-401d-8bab-186985b9898d" />
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-![image](https://github.com/user-attachments/assets/3ada51b7-62e4-4a46-b149-239451bac46f)
-
+<img width="1920" height="1200" alt="Screenshot 2025-10-07 135529" src="https://github.com/user-attachments/assets/b521ea4d-9423-41c5-bf92-f9def93903ce" />
 
 **RESULTS**
-
-Thus the SR flipflop is implemented and verified.
